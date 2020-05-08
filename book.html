@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+   
+
+
+body
+{
+background-image: url("background1s.jpg");
+ background-repeat: no-repeat;
+ background-size: 100%;
+    }
+
+
+ {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+h1{
+    color:greenyellow;
+}
+
+h3{
+  
+    border-spacing:5mm;
+    color:white
+}
+
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  max-width:500px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+.button {
+  
+  background-color:dodgerblue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+
+
+
+
+
+
+marquee
+{
+background-color:blue;
+}
+
+
+
+
+
+
+h3{
+  text-decoration-color: chocolate;
+}
+
+
+</style>
+</head>
+<body>
+
+<h1>Booking detail</h1>
+<marquee>"Book a Car and enjoy Your Ride"</marquee>
+
+
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder="Name" id="name">
+  </div>
+  <div class="input-container">
+    <i class="fa fa-volume-control-phone icon" aria-hidden="true"></i>
+    <input type="tel"  class="input-field"id="phone" placeholder="Mobile Number" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+
+  </div>
+
+  <div class="input-container">
+    <i class="fa fa-envelope icon"></i>
+    <input class="input-field" type="text" placeholder="Email" name="email">
+  </div>
+<h3>  IssueDate </h3>
+  <div class="input-container">
+      
+    <i class="fa fa-calendar-minus-o icon" aria-hidden="true"></i>
+    <input class="input-field" type="date" placeholder="IssueDate"start="issueDate" id="issueDate">
+</div>
+
+<h3> ReturnDate </h3>
+  <div class="input-container">
+      
+    <i class="fa fa-calendar-minus-o icon" aria-hidden="true"></i>
+    <input class="input-field" type="date" start="ReturnDate" id="RetDate">
+</div>
+
+    <div class="input-container">
+  <button id="myBtn"  class="input-field"  onclick="myfun()">Book a Car</button><br
+  <div class="input-container">
+  <a href="index.html" class="button">Back</a><br>
+
+  <div id="myModal" class="modal">
+
+
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Booking-Details</h2>
+      </div>
+      <div class="modal-body">
+        <p id="naa"></p>
+        Booking-Date<p id="time"></p><br>
+        ReturnDate<p id="time2"></p>
+        Thanks for Booking
+      </div>
+      <div class="modal-footer">
+        <h3>Booking-Sucess</h3>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+    <marquee>Book a Car and enjoy Your Ride</marquee>
+
+
+
+<script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks the button, open the modal 
+  btn.onclick = function myfun(){
+
+  
+  var x, text;
+
+  // Get the value of the input field with id="numb"
+  x = document.getElementById("numb").value;
+
+  // If x is Not a Number or less than one or greater than 10
+  if (isNaN(x) || x < 1 || x > 10) {
+    text = "Input not valid";
+  } else {
+    text = "Input OK";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+
+
+    var x=document.getElementById("naa");
+    var a=document.getElementById("time");
+    var b= document.getElementById("time2");
+    var y=document.getElementById("name").value;
+    var z=document.getElementById("issueDate").value;
+    var c=document.getElementById("RetDate").value;
+    x.innerHTML=y;
+    a.innerHTML=z;
+    b.innerHTML=c;
+    modal.style.display = "block";
+
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>
+
+
+
+
+
+
+</body>
+<footer>
+
+</footer>
+</html>
+
+
+
+
+
+
+
+
+
+
